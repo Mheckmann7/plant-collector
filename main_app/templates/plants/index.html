@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Plant List</h1>
+
+{% for plant in plants %}
+<a href="/plants/{{plant.id}}">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ plant.name }}</span>
+      <p>Description: {{ plant.description }}</p>
+      <p>Conditions: {{ plant.conditions }}</p>
+
+    </div>
+  </div>
+</a>
+{% endfor %}
+
+{% endblock %}
