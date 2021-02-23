@@ -34,10 +34,13 @@ class Plant(models.Model):
         return reverse('plant_detail', kwargs={'plant_id': self.id})
 
 
-class WateringDate(models.Model):
-    date = models.DateField()
+class Watering(models.Model):
+    date = models.DateField('watering date')
 
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Watered on {self.date}"
+
+    class Meta:
+        ordering = ['-date']
