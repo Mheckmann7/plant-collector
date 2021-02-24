@@ -33,6 +33,7 @@ class Plant(models.Model):
     description = models.TextField(max_length=250)
     waterAmount = models.TextField(max_length=250)
     lighting = models.CharField(max_length=100)
+    problems = models.ManyToManyField(Problem)
 
     def __str__(self):
         return self.name
