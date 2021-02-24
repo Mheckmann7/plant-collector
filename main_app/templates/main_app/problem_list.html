@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Garden Problems</h1>
+
+{% for problem in problem_list %}
+<a href="{% url 'problems_detail' problem.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ problem.name }}</span>
+            <p>Desc: {{ problem.description }}</p>
+        </div>
+    </div>
+</a>
+
+{% endfor %}
+
+{% endblock %}
+
