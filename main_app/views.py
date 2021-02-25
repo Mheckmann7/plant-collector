@@ -21,10 +21,12 @@ def index(request):
 
 def plants_detail(request, plant_id):
     plant = Plant.objects.get(id=plant_id)
+    potential_problems = Problem.objects.exclude(id__in = plant.problems.all().values_list('id'))
     watering_form = WateringForm()
     return render(request, 'plants/detail.html', {
         'plant': plant,
         'watering_form': watering_form,
+        'available_problems': potential_problems
     })
 
 
@@ -36,15 +38,19 @@ def add_watering(request, plant_id):
         new_watering.save()
     return redirect('plant_detail', plant_id=plant_id)
 
+def assoc_problem(request, plant_id, problem_id):
+    Plant.objects.get(id=plant_id).problems.add(problem_id)
+    return redirect('plant_detail', plant_id=plant_id)
+
 
 class PlantCreate(CreateView):
     model = Plant
-    fields = '__all__'
+    fields = ['name', 'description', 'water_amount', 'lighting']
 
 
 class PlantUpdate(UpdateView):
     model = Plant
-    fields = ['description', 'waterAmount', 'lighting']
+    fields = ['description', 'water_amount', 'lighting']
 
 
 class PlantDelete(DeleteView):

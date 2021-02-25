@@ -3,18 +3,6 @@ from django.urls import reverse
 from datetime import date
 # Create your models here.
 
-# LIGHTING = (
-#     ('SD', 'Shade'),
-#     ('LL', 'Low Light'),
-#     ('DS', 'Direct sun')
-# )
-
-# WATERAMOUNT = (
-#     ('E', 'Everyday'),
-#     ('W', 'Weekly'),
-#     ('R', 'Rarely')
-# )
-
 
 class Problem(models.Model):
     name = models.CharField(max_length=50)
@@ -31,7 +19,7 @@ class Problem(models.Model):
 class Plant(models.Model):
     name = models.CharField(max_length=250)
     description = models.TextField(max_length=250)
-    waterAmount = models.TextField(max_length=250)
+    water_amount = models.IntegerField()
     lighting = models.CharField(max_length=100)
     problems = models.ManyToManyField(Problem)
 
@@ -41,8 +29,8 @@ class Plant(models.Model):
     def get_absolute_url(self):
         return reverse('plant_detail', kwargs={'plant_id': self.id})
 
-    # def needs_water(self):
-    #     return self.watering_set.filter(date=date.today()).count() >= self.waterAmount)
+    def needs_water(self):
+        return self.watering_set.filter(date=date.today()).count() >= self.water_amount
 
 
 class Watering(models.Model):

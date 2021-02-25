@@ -18,5 +18,6 @@ urlpatterns = [
      path('problems/create/', views.ProblemCreate.as_view(), name='problems_create'),
      path('problems/<int:pk>/update/', views.ProblemUpdate.as_view(), name='problems_update'),
      path('problems/<int:pk>/delete/', views.ProblemDelete.as_view(), name='problems_delete'),
+     path('plants/<int:plant_id>/assoc_problem/<int:problem_id>/', views.assoc_problem, name='assoc_problem'),
  
 ]
