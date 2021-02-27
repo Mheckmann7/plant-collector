@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Garden Grower</title>
+    <title>Plant Tracker</title>
 </head>
 <body>
     <header class="navbar-fixed">
@@ -17,7 +17,7 @@
             <div class="nav-wrapper green">
                 <ul>
                     <li>
-                        <a href="{%url 'home' %}" class="left brand-logo">Garden Grower</a>
+                        <a href="{%url 'home' %}" class="left brand-logo">Plant Tracker</a>
                     </li>
                 </ul>
                 <ul class="right">
@@ -36,7 +36,7 @@
         {% endblock %}
     </main>
     <footer class="page-footer green">
-        <div class="right">Garden Grower <span id="year"></span></div>
+        <div class="right">Plant Tracker <span id="year"></span></div>
     </footer>
     <script>
         const spanEl = document.getElementById('year');

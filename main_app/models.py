@@ -29,24 +29,8 @@ class Plant(models.Model):
     def get_absolute_url(self):
         return reverse('plant_detail', kwargs={'plant_id': self.id})
 
-#Function to check days since watering 
     def needs_water(self):
         return self.watering_set.filter(date=date.today()).count() >= 1 
-        # watering_date = Watering.objects.first()
-
-        # last_watering = watering_date.date.day
-        # print(last_watering)
-        # day = date.today().day
-        # days_since_watering = day - self.water_amount
-        # print(days_since_watering)
-        # if days_since_watering <= last_watering:
-        #     return True
-        # else:
-        #     return False
-        
-
-
-
 
 
 class Watering(models.Model):
