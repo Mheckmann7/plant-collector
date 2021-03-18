@@ -8,4 +8,4 @@
 - Django
 - Materialize
 
-![Imgur](https://imgur.com/cTXVEs9)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/e42KiN7" data-context="false" ><a href="//imgur.com/a/e42KiN7"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
