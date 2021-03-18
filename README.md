@@ -8,4 +8,4 @@
 - Django
 - Materialize
 
-[Imgur](https://imgur.com/cTXVEs9)
+![Imgur](https://imgur.com/cTXVEs9)
